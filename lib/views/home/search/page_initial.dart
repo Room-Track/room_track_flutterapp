@@ -157,9 +157,18 @@ class _SearchPageInitialState extends ConsumerState<SearchPageInitial>
                         delta >= step
                             ? Opacity(
                                 opacity: halfDelta,
-                                child: TextButton(
-                                  onPressed: () {},
-                                  child: Text('Search by building'),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    TextButton(
+                                      onPressed: () {},
+                                      child: Text('Search by building'),
+                                    ),
+                                    TextButton(
+                                      onPressed: () {},
+                                      child: Text('See history'),
+                                    )
+                                  ],
                                 ),
                               )
                             : SizedBox(height: 0),

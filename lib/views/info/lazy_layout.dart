@@ -4,6 +4,7 @@ import 'package:room_track_flutterapp/types/building_info.dart';
 import 'package:room_track_flutterapp/types/favorite_card.dart';
 import 'package:room_track_flutterapp/views/info/page_building.dart';
 import 'package:room_track_flutterapp/views/info/page_regular_room.dart';
+import 'package:room_track_flutterapp/views/info/skeleton_regular_room.dart';
 
 class InfoLazyLayout extends StatefulWidget {
   final FavoriteCardType basicInfo;
@@ -36,17 +37,26 @@ class _InfoLazyLayoutState extends State<InfoLazyLayout> {
     }
   }
 
+  Widget _getSkeleton() {
+    switch (widget.basicInfo.type) {
+      default:
+        return RegularRoomSkeleton();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
         future: _buildingInfo,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Text("waiting..");
+            return _getSkeleton();
           } else if (snapshot.hasData && snapshot.data != null) {
             return _getInfoPage(snapshot.data!);
           } else {
-            return Text("error :c");
+            return Center(
+              child: Text("Server does not respond.."),
+            );
           }
         });
   }
