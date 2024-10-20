@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:room_track_flutterapp/providers/theme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:room_track_flutterapp/theme/lang.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LanguageSettingsPage extends ConsumerStatefulWidget {
   const LanguageSettingsPage({super.key});
