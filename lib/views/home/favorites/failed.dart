@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:room_track_flutterapp/theme/icon.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FavoritesPageFailed extends StatelessWidget {
   const FavoritesPageFailed({
@@ -10,9 +11,10 @@ class FavoritesPageFailed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final lang = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Favorites"),
+        title: Text(lang.appBar0),
       ),
       body: Center(
         child: Column(

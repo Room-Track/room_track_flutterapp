@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:room_track_flutterapp/providers/theme.dart';
 import 'package:room_track_flutterapp/theme/color.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ThemeSettingsPage extends ConsumerStatefulWidget {
   const ThemeSettingsPage({super.key});
@@ -25,17 +26,18 @@ class _ThemeSettingsPageState extends ConsumerState<ThemeSettingsPage> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final lang = AppLocalizations.of(context)!;
     _selectedTheme = ref.watch(themeProvider).colorSchemeName;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Theme"),
+        title: Text(lang.settingTheme),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Select your theme'),
+            Text(lang.settingThemeSub),
             SizedBox(height: 20),
             Expanded(
                 child: ListView.builder(

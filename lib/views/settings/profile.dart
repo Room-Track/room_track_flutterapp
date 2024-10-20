@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:room_track_flutterapp/components/settings_tile.dart';
 import 'package:room_track_flutterapp/theme/icon.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProfileSettingsPage extends StatelessWidget {
   ProfileSettingsPage({super.key});
@@ -19,9 +20,10 @@ class ProfileSettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final lang = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Profile"),
+        title: Text(lang.settingProfile),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -62,7 +64,7 @@ class ProfileSettingsPage extends StatelessWidget {
               ElevatedButton.icon(
                 onPressed: _editProfile,
                 icon: Icon(Icons.edit),
-                label: Text('Edit Profile'),
+                label: Text(lang.settingProfileBtn0),
                 style: ElevatedButton.styleFrom(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
@@ -81,7 +83,7 @@ class ProfileSettingsPage extends StatelessWidget {
                */
               SettingsTile(
                 icon: Icons.lock_outline,
-                title: 'Change Password',
+                title: lang.settingProfileBtn1,
                 onTap: () {},
                 iconColor: theme.colorScheme.primary,
               ),
@@ -90,7 +92,7 @@ class ProfileSettingsPage extends StatelessWidget {
                */
               SettingsTile(
                 icon: Icons.logout,
-                title: 'Sign Out',
+                title: lang.settingProfileBtn2,
                 exit: true,
                 onTap: () {
                   FirebaseAuth.instance.signOut();

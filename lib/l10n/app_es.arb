@@ -1,0 +1,53 @@
+{
+	"@@locale": "es",
+
+	"appBar0": "Favoritos",
+	"@appBar0": {},
+	"appBar1": "Buscar",
+	"@appBar1": {},
+	"appBar2": "Mapa",
+	"@appBar2": {},
+
+	"welcome": "¿Qué sala estamos buscando?",
+	"@welcome": {},
+	"searchHint": "Inserte sala/edificio aquí",
+	"@searchHint": {},
+	"searchBtn0": "Buscar por edificio",
+	"@searchBtn0": {},
+	"searchBtn1": "Ver historial",
+	"@searchBtn1": {},
+
+	"settingProfile": "Perfil",
+	"@settingProfile": {},
+	"settingProfileBtn0": "Editar Perfil",
+	"@settingProfileBtn0": {},
+	"settingProfileBtn1": "Cambiar Contraseña",
+	"@settingProfileBtn1": {},
+	"settingProfileBtn2": "Cerrar Sesión",
+	"@settingProfileBtn2": {},
+
+	"settingLanguage": "Idioma",
+	"@settingLanguage": {},
+	"settingLanguageSub": "Selecciona tu idioma",
+	"@settingLanguageSub": {},
+
+	"settingFont": "Fuente",
+	"@settingFont": {},
+	"settingFontSub": "Selecciona el tamaño de fuente preferido",
+	"@settingFontSub": {},
+
+	"settingTheme": "Tema",
+	"@settingTheme": {},
+	"settingThemeSub": "Selecciona tu tema",
+	"@settingThemeSub": {},
+
+	"settingUsage": "Uso",
+	"@settingUsage": {},
+
+	"settingShare": "Compartir",
+	"@settingShare": {},
+	"settingContact": "Contacto",
+	"@settingContact": {},
+	"settingVersion": "Versión",
+	"@settingVersion": {}
+}

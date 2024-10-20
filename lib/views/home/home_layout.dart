@@ -7,6 +7,7 @@ import 'package:room_track_flutterapp/views/home/favorites/lazy_layout.dart';
 import 'package:room_track_flutterapp/views/home/map/page.dart';
 import 'package:room_track_flutterapp/views/home/search/page_initial.dart';
 import 'package:room_track_flutterapp/views/settings/profile.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeLayout extends StatefulWidget {
   const HomeLayout({super.key});
@@ -44,6 +45,7 @@ class _HomeLayoutState extends State<HomeLayout> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final lang = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
         surfaceTintColor: theme.colorScheme.surface,
@@ -77,7 +79,7 @@ class _HomeLayoutState extends State<HomeLayout> {
           destinations: [
             NavigationDestination(
               icon: Icon(Icons.star_border_outlined),
-              label: 'Favorites',
+              label: lang.appBar0,
             ),
             NavigationDestination(
               icon: SvgPicture.asset(
@@ -87,7 +89,7 @@ class _HomeLayoutState extends State<HomeLayout> {
                   BlendMode.srcIn,
                 ),
               ),
-              label: 'Search',
+              label: lang.appBar1,
             ),
             NavigationDestination(
               icon: SvgPicture.asset(
@@ -97,7 +99,7 @@ class _HomeLayoutState extends State<HomeLayout> {
                   BlendMode.srcIn,
                 ),
               ),
-              label: 'Map',
+              label: lang.appBar2,
             ),
           ],
         ),

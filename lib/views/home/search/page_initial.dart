@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:room_track_flutterapp/providers/search_query.dart';
 import 'package:room_track_flutterapp/views/home/search/lazy_layout.dart';
 import 'package:room_track_flutterapp/theme/icon.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SearchPageInitial extends ConsumerStatefulWidget {
   const SearchPageInitial({super.key});
@@ -51,6 +52,7 @@ class _SearchPageInitialState extends ConsumerState<SearchPageInitial>
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final lang = AppLocalizations.of(context)!;
 
     return AnimatedBuilder(
       animation: _animation,
@@ -79,7 +81,7 @@ class _SearchPageInitialState extends ConsumerState<SearchPageInitial>
             title: delta <= step
                 ? Opacity(
                     opacity: 1 - delta,
-                    child: Text("Search"),
+                    child: Text(lang.appBar1),
                   )
                 : SizedBox(
                     width: 0,
@@ -119,7 +121,7 @@ class _SearchPageInitialState extends ConsumerState<SearchPageInitial>
                             ? Opacity(
                                 opacity: halfDelta,
                                 child: Text(
-                                  '¿Which room are we looking for?',
+                                  lang.welcome,
                                   style: theme.textTheme.headlineLarge,
                                   textAlign: TextAlign.center,
                                 ),
@@ -145,7 +147,7 @@ class _SearchPageInitialState extends ConsumerState<SearchPageInitial>
                                   theme.colorScheme.onSurface, BlendMode.srcIn),
                             ),
                           ),
-                          hintText: 'Insert room/building here',
+                          hintText: lang.searchHint,
                           hintStyle: WidgetStateProperty.resolveWith<TextStyle>(
                               (state) => TextStyle(
                                   color: theme.colorScheme.onSurface
@@ -166,11 +168,11 @@ class _SearchPageInitialState extends ConsumerState<SearchPageInitial>
                                   children: [
                                     TextButton(
                                       onPressed: () {},
-                                      child: Text('Search by building'),
+                                      child: Text(lang.searchBtn0),
                                     ),
                                     TextButton(
                                       onPressed: () {},
-                                      child: Text('See history'),
+                                      child: Text(lang.searchBtn1),
                                     )
                                   ],
                                 ),
@@ -195,42 +197,3 @@ class _SearchPageInitialState extends ConsumerState<SearchPageInitial>
     super.dispose();
   }
 }
-
-/*
-Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                '¿Which room are we looking for?',
-                style: theme.textTheme.headlineLarge,
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: 20),
-              SearchBar(
-                onTap: () {
-                  _controller.forward();
-                },
-                leading: Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 20, 10, 20),
-                  child: SvgPicture.asset(
-                    IconSchemeButton.searchSVG,
-                    colorFilter: ColorFilter.mode(
-                        theme.colorScheme.onSurface, BlendMode.srcIn),
-                  ),
-                ),
-                hintText: 'Insert room/building here',
-                hintStyle: WidgetStateProperty.resolveWith<TextStyle>((state) =>
-                    TextStyle(
-                        color: theme.colorScheme.onSurface.withOpacity(0.5))),
-                backgroundColor: WidgetStateProperty.resolveWith<Color>(
-                    (state) => theme.colorScheme.surfaceDim),
-              ),
-              SizedBox(height: 20),
-              TextButton(
-                onPressed: () {},
-                child: Text('Search by building'),
-              ),
-            ],
-          )
- */

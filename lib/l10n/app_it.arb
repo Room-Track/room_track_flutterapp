@@ -1,0 +1,53 @@
+{
+	"@@locale": "it",
+
+	"appBar0": "Preferiti",
+	"@appBar0": {},
+	"appBar1": "Cerca",
+	"@appBar1": {},
+	"appBar2": "Mappa",
+	"@appBar2": {},
+
+	"welcome": "Quale sala stiamo cercando?",
+	"@welcome": {},
+	"searchHint": "Inserisci sala/edificio qui",
+	"@searchHint": {},
+	"searchBtn0": "Cerca per edificio",
+	"@searchBtn0": {},
+	"searchBtn1": "Vedi cronologia",
+	"@searchBtn1": {},
+
+	"settingProfile": "Profilo",
+	"@settingProfile": {},
+	"settingProfileBtn0": "Modifica Profilo",
+	"@settingProfileBtn0": {},
+	"settingProfileBtn1": "Cambia Password",
+	"@settingProfileBtn1": {},
+	"settingProfileBtn2": "Esci",
+	"@settingProfileBtn2": {},
+
+	"settingLanguage": "Lingua",
+	"@settingLanguage": {},
+	"settingLanguageSub": "Seleziona la tua lingua",
+	"@settingLanguageSub": {},
+
+	"settingFont": "Carattere",
+	"@settingFont": {},
+	"settingFontSub": "Seleziona la dimensione del carattere preferita",
+	"@settingFontSub": {},
+
+	"settingTheme": "Tema",
+	"@settingTheme": {},
+	"settingThemeSub": "Seleziona il tuo tema",
+	"@settingThemeSub": {},
+
+	"settingUsage": "Utilizzo",
+	"@settingUsage": {},
+
+	"settingShare": "Condividi",
+	"@settingShare": {},
+	"settingContact": "Contatto",
+	"@settingContact": {},
+	"settingVersion": "Versione",
+	"@settingVersion": {}
+}

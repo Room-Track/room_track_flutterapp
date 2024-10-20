@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:room_track_flutterapp/components/favorite_card.dart';
 import 'package:room_track_flutterapp/types/favorite_card.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FavoritesPage extends StatelessWidget {
   final Iterable<FavoriteCardType> favorites;
@@ -12,9 +13,10 @@ class FavoritesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final lang = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Favorites"),
+        title: Text(lang.appBar0),
       ),
       body: Align(
         alignment: Alignment.topCenter,

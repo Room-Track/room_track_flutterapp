@@ -7,6 +7,7 @@ import 'package:room_track_flutterapp/views/settings/share.dart';
 import 'package:room_track_flutterapp/views/settings/theme.dart';
 import 'package:room_track_flutterapp/views/settings/usage.dart';
 import 'package:room_track_flutterapp/views/settings/version.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PopUpMenu extends StatelessWidget {
   const PopUpMenu({super.key});
@@ -50,6 +51,7 @@ class PopUpMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final lang = AppLocalizations.of(context)!;
     return PopupMenuButton(
       onSelected: (value) {
         _onSelected(context, value);
@@ -58,35 +60,35 @@ class PopUpMenu extends StatelessWidget {
         return [
           PopupMenuItem(
             value: "Profile",
-            child: Text("Profile"),
+            child: Text(lang.settingProfile),
           ),
           PopupMenuItem(
             value: "Language",
-            child: Text("Language"),
+            child: Text(lang.settingLanguage),
           ),
           PopupMenuItem(
             value: "Font",
-            child: Text("Font"),
+            child: Text(lang.settingFont),
           ),
           PopupMenuItem(
             value: "Theme",
-            child: Text("Theme"),
+            child: Text(lang.settingTheme),
           ),
           PopupMenuItem(
             value: "Usage",
-            child: Text("Usage"),
+            child: Text(lang.settingUsage),
           ),
           PopupMenuItem(
             value: "Share",
-            child: Text("Share"),
+            child: Text(lang.settingShare),
           ),
           PopupMenuItem(
             value: "Contact",
-            child: Text("Contact"),
+            child: Text(lang.settingContact),
           ),
           PopupMenuItem(
             value: "Version",
-            child: Text("Version"),
+            child: Text(lang.settingVersion),
           ),
         ];
       },

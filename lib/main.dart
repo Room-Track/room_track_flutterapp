@@ -7,6 +7,8 @@ import 'package:room_track_flutterapp/providers/theme.dart';
 import 'package:room_track_flutterapp/theme/color.dart';
 import 'package:room_track_flutterapp/theme/text.dart';
 import 'package:room_track_flutterapp/views/auth/auth_layout.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
   await dotenv.load(fileName: '.env');
@@ -20,10 +22,10 @@ class MainApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final colorSchemeName = ref.watch(themeProvider).colorSchemeName;
-    final textSchemeName = ref.watch(themeProvider).textSchemeName;
-    ColorScheme colorScheme = ColorThemes.getScheme(colorSchemeName, context);
-    TextTheme textScheme = TextThemes.getScheme(textSchemeName);
+    final appTheme = ref.watch(themeProvider);
+    ColorScheme colorScheme =
+        ColorThemes.getScheme(appTheme.colorSchemeName, context);
+    TextTheme textScheme = TextThemes.getScheme(appTheme.colorSchemeName);
     return MaterialApp(
       theme: ThemeData(
         colorScheme: colorScheme,
@@ -34,6 +36,12 @@ class MainApp extends ConsumerWidget {
       title: 'Room Track',
       home: const Authlayout(),
       debugShowCheckedModeBanner: false,
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        ...GlobalMaterialLocalizations.delegates,
+      ],
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: Locale(appTheme.languageCode),
     );
   }
 }

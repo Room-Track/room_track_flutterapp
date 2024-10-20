@@ -1,0 +1,53 @@
+{
+	"@@locale": "en",
+
+	"appBar0": "Favorites",
+	"@appBar0": {},
+	"appBar1": "Search",
+	"@appBar1": {},
+	"appBar2": "Map",
+	"@appBar2": {},
+
+	"welcome": "¿Which room are we looking for?",
+	"@welcome": {},
+	"searchHint": "Inset room/building here",
+	"@searchHint": {},
+	"searchBtn0": "Search by building",
+	"@searchBtn0": {},
+	"searchBtn1": "See history",
+	"@searchBtn1": {},
+
+	"settingProfile": "Profile",
+	"@settingProfile": {},
+	"settingProfileBtn0": "Edit Profile",
+	"@settingProfileBtn0": {},
+	"settingProfileBtn1": "Change Password",
+	"@settingProfileBtn1": {},
+	"settingProfileBtn2": "Sign Out",
+	"@settingProfileBtn2": {},
+
+	"settingLanguage": "Language",
+	"@settingLanguage": {},
+	"settingLanguageSub": "Select your language",
+	"@settingLanguageSub": {},
+
+	"settingFont": "Font",
+	"@settingFont": {},
+	"settingFontSub": "Select your preferred font size",
+	"@settingFontSub": {},
+
+	"settingTheme": "Theme",
+	"@settingTheme": {},
+	"settingThemeSub": "Select your theme",
+	"@settingThemeSub": {},
+
+	"settingUsage": "Usage",
+	"@settingUsage": {},
+
+	"settingShare": "Share",
+	"@settingShare": {},
+	"settingContact": "Contact",
+	"@settingContact": {},
+	"settingVersion": "Version",
+	"@settingVersion": {}
+}

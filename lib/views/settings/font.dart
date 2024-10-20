@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:room_track_flutterapp/providers/theme.dart';
 import 'package:room_track_flutterapp/theme/text.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FontSettingsPage extends ConsumerStatefulWidget {
   const FontSettingsPage({super.key});
@@ -25,17 +26,18 @@ class _FontSettingsPageState extends ConsumerState<FontSettingsPage> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final lang = AppLocalizations.of(context)!;
     _selected = ref.watch(themeProvider).textSchemeName;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Font"),
+        title: Text(lang.settingFont),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Select your preferred font size'),
+            Text(lang.settingFontSub),
             const SizedBox(height: 20),
             Expanded(
               child: ListView.builder(

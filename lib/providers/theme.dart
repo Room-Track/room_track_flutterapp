@@ -4,10 +4,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class ThemeNotifier extends ChangeNotifier {
   String textSchemeName;
   String colorSchemeName;
+  String languageCode;
 
   ThemeNotifier({
     required this.textSchemeName,
     required this.colorSchemeName,
+    required this.languageCode,
   });
 
   void changeColorSchemeName(String schemeName) {
@@ -19,11 +21,17 @@ class ThemeNotifier extends ChangeNotifier {
     textSchemeName = schemeName;
     notifyListeners();
   }
+
+  void changeLanguageCode(String langCode) {
+    languageCode = langCode;
+    notifyListeners();
+  }
 }
 
 final themeProvider = ChangeNotifierProvider<ThemeNotifier>((ref) {
   return ThemeNotifier(
     textSchemeName: "Medium",
     colorSchemeName: "Dark",
+    languageCode: 'en',
   );
 });
