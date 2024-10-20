@@ -39,6 +39,10 @@ class _SearchPageInitialState extends ConsumerState<SearchPageInitial>
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         // TODO Arreglar que se pida el foco cuando termine la animacion
+        /**
+         * Intenta mover toda la logica del future aca o mover la animacion al future
+         * de forma que no se cargue la peticion por cada vez que cambia la animacion
+         */
         _focusNode.requestFocus();
       }
     });

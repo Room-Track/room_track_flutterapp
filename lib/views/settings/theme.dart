@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:room_track_flutterapp/providers/theme.dart';
+import 'package:room_track_flutterapp/theme/color.dart';
 
 class ThemeSettingsPage extends ConsumerStatefulWidget {
-  ThemeSettingsPage({super.key});
-
-  final List<Map<String, ThemeMode>> themes = [
-    {'Light': ThemeMode.light},
-    {'Dark': ThemeMode.dark},
-    {'System': ThemeMode.system},
-  ];
+  const ThemeSettingsPage({super.key});
 
   @override
   ConsumerState<ThemeSettingsPage> createState() => _ThemeSettingsPageState();
@@ -19,6 +14,9 @@ class _ThemeSettingsPageState extends ConsumerState<ThemeSettingsPage> {
   String _selectedTheme = "";
 
   void _onTap(String name) {
+    if (name == _selectedTheme) {
+      return;
+    }
     _selectedTheme = name;
     ref.read(themeProvider).changeColorSchemeName(name);
     setState(() {});
@@ -41,9 +39,9 @@ class _ThemeSettingsPageState extends ConsumerState<ThemeSettingsPage> {
             SizedBox(height: 20),
             Expanded(
                 child: ListView.builder(
-              itemCount: widget.themes.length,
+              itemCount: ColorThemes.names.length,
               itemBuilder: (context, index) {
-                final name = widget.themes[index].keys.first;
+                final name = ColorThemes.names[index];
                 return ListTile(
                   title: Text(name),
                   trailing: _selectedTheme == name

@@ -3,6 +3,12 @@
 import 'package:flutter/material.dart';
 
 class ColorThemes {
+  static const names = [
+    'Light',
+    'Dark',
+    'System',
+  ];
+
   static const Color _black = Color(0xff161616);
   static const Color _white = Color(0xfffdfdfd);
 
