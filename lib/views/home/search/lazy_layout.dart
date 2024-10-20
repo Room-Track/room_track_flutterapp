@@ -32,7 +32,7 @@ class _SearchLazyLayoutState extends ConsumerState<SearchLazyLayout> {
   Widget build(BuildContext context) {
     final query = ref.watch(searchQueryProvider).query;
     if (query != '') {
-      _refreshData(query);
+      _refreshData(query.toUpperCase());
     }
 
     return FutureBuilder(
