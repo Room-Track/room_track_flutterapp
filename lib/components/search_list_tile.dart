@@ -26,6 +26,10 @@ class SearchListTile extends StatelessWidget {
         info.icon,
         height: 35,
         width: 35,
+        colorFilter: ColorFilter.mode(
+          theme.colorScheme.onSurface,
+          BlendMode.srcIn,
+        ),
       ),
       title: Text(info.name),
       subtitle: Text(

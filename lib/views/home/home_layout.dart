@@ -90,7 +90,13 @@ class _HomeLayoutState extends State<HomeLayout> {
               label: 'Search',
             ),
             NavigationDestination(
-              icon: SvgPicture.asset(IconSchemeButton.mapSVG),
+              icon: SvgPicture.asset(
+                IconSchemeButton.mapSVG,
+                colorFilter: ColorFilter.mode(
+                  theme.colorScheme.onSurface,
+                  BlendMode.srcIn,
+                ),
+              ),
               label: 'Map',
             ),
           ],

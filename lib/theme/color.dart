@@ -40,8 +40,8 @@ class ColorThemes {
     onError: _black,
     surface: _white,
     onSurface: _black,
-    surfaceBright: _lightGrey,
-    surfaceDim: _grey,
+    surfaceBright: _grey,
+    surfaceDim: _lightGrey,
   );
 
   static ColorScheme getScheme(String schemeName, BuildContext context) {

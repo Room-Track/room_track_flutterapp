@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:room_track_flutterapp/components/favorite_star.dart';
 import 'package:room_track_flutterapp/types/favorite_card.dart';
-import 'package:room_track_flutterapp/views/info/page_building.dart';
-import 'package:room_track_flutterapp/views/info/page_regular_room.dart';
+import 'package:room_track_flutterapp/views/info/lazy_layout.dart';
 
 class InfoPage extends StatelessWidget {
   final FavoriteCardType basicInfo;
@@ -10,15 +9,6 @@ class InfoPage extends StatelessWidget {
     super.key,
     required this.basicInfo,
   });
-
-  Widget _getInfoPage() {
-    switch (basicInfo.type) {
-      case 'Building':
-        return BuildingInfoPage(basicInfo: basicInfo);
-      default:
-        return RegularRoomInfoPage(basicInfo: basicInfo);
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +22,7 @@ class InfoPage extends StatelessWidget {
           ),
         ],
       ),
-      body: _getInfoPage(),
+      body: InfoLazyLayout(basicInfo: basicInfo),
     );
   }
 }

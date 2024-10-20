@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:http/http.dart' as http;
 import 'package:room_track_flutterapp/env/env_variables.dart';
+import 'package:room_track_flutterapp/types/building_info.dart';
 import 'package:room_track_flutterapp/types/favorite_card.dart';
 
 class HttpGetRequests {
@@ -40,5 +41,21 @@ class HttpGetRequests {
       });
     }
     return [];
+  }
+
+  static Future<BuildingInfoType?> getBuilding(String name) async {
+    final String token =
+        (await FirebaseAuth.instance.currentUser?.getIdToken())!;
+    final url = Uri.http(EnvVariables.API_URL, '/search/building', {
+      'name': name,
+    });
+    final res = await http.get(url, headers: {
+      'authorization': token,
+    });
+    if (200 <= res.statusCode && res.statusCode < 300) {
+      final Map<String, dynamic> body = jsonDecode(res.body);
+      return BuildingInfoType.fromJson(body['data']);
+    }
+    return null;
   }
 }
