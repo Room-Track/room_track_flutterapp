@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:room_track_flutterapp/providers/search_query.dart';
+import 'package:room_track_flutterapp/views/home/history/page.dart';
 import 'package:room_track_flutterapp/views/home/search/lazy_layout.dart';
 import 'package:room_track_flutterapp/theme/icon.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:room_track_flutterapp/views/home/search_by_building/lazy_layout.dart';
 
 class SearchPageInitial extends ConsumerStatefulWidget {
   const SearchPageInitial({super.key});
@@ -47,6 +49,16 @@ class _SearchPageInitialState extends ConsumerState<SearchPageInitial>
         _focusNode.requestFocus();
       }
     });
+  }
+
+  void _onPressedSearchByBuilding(BuildContext context) {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => SearchByBuildingLazy()));
+  }
+
+  void _onPressedSeeHistory(BuildContext context) {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => HistoryPage()));
   }
 
   @override
@@ -167,11 +179,15 @@ class _SearchPageInitialState extends ConsumerState<SearchPageInitial>
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     TextButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        _onPressedSearchByBuilding(context);
+                                      },
                                       child: Text(lang.searchBtn0),
                                     ),
                                     TextButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        _onPressedSeeHistory(context);
+                                      },
                                       child: Text(lang.searchBtn1),
                                     )
                                   ],

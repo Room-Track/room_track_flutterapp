@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:room_track_flutterapp/providers/history.dart';
 import 'package:room_track_flutterapp/types/favorite_card.dart';
 import 'package:room_track_flutterapp/views/info/page.dart';
 
-class FavoriteCard extends StatelessWidget {
+class FavoriteCard extends ConsumerWidget {
   final FavoriteCardType info;
 
   const FavoriteCard({
@@ -11,20 +13,21 @@ class FavoriteCard extends StatelessWidget {
     required this.info,
   });
 
-  void _onTap(BuildContext context) {
+  void _onTap(BuildContext context, WidgetRef ref) {
+    ref.read(historyProvider).pushHistory(info);
     Navigator.push(context,
         MaterialPageRoute(builder: (context) => InfoPage(basicInfo: info)));
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     return Card(
       color: theme.colorScheme.surfaceDim,
       clipBehavior: Clip.hardEdge,
       child: InkWell(
         onTap: () {
-          _onTap(context);
+          _onTap(context, ref);
         },
         child: Padding(
           padding: const EdgeInsets.all(10),

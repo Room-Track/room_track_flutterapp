@@ -58,4 +58,23 @@ class HttpGetRequests {
     }
     return null;
   }
+
+  static Future<Iterable<FavoriteCardType>> getSearchByType(String type) async {
+    final String token =
+        (await FirebaseAuth.instance.currentUser?.getIdToken())!;
+    final url = Uri.http(EnvVariables.API_URL, '/search/type', {
+      'type': type,
+    });
+    final res = await http.get(url, headers: {
+      'authorization': token,
+    });
+    if (200 <= res.statusCode && res.statusCode < 300) {
+      final Map<String, dynamic> body = jsonDecode(res.body);
+      final List rawData = body['data'];
+      return rawData.map((el) {
+        return FavoriteCardType.fromJson(el);
+      });
+    }
+    return [];
+  }
 }

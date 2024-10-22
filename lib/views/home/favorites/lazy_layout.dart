@@ -29,6 +29,8 @@ class _FavoritesLazyLayoutState extends ConsumerState<FavoritesLazyLayout> {
   Widget build(BuildContext context) {
     _futureData = ref.watch(favoritesProvider).favorites;
 
+    // TODO implementar reconexion continua al perder conexion con el server
+
     return FutureBuilder(
         future: _futureData,
         builder: (context, snapshot) {
