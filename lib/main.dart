@@ -25,7 +25,7 @@ class MainApp extends ConsumerWidget {
     final appTheme = ref.watch(themeProvider);
     ColorScheme colorScheme =
         ColorThemes.getScheme(appTheme.colorSchemeName, context);
-    TextTheme textScheme = TextThemes.getScheme(appTheme.colorSchemeName);
+    TextTheme textScheme = TextThemes.getScheme(appTheme.textSchemeName);
     return MaterialApp(
       theme: ThemeData(
         colorScheme: colorScheme,

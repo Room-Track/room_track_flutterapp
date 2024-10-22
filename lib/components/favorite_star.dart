@@ -26,13 +26,9 @@ class _FavoriteStar extends ConsumerState<FavoriteStar> {
   void _toggleFavorite() {
     _isFavorite = !_isFavorite;
     if (_isFavorite) {
-      ref
-          .read(favoritesProvider)
-          .requestAdd(widget.basicInfo.name, widget.basicInfo.type);
+      ref.read(favoritesProvider).requestAdd(widget.basicInfo.name);
     } else {
-      ref
-          .read(favoritesProvider)
-          .requestRemove(widget.basicInfo.name, widget.basicInfo.type);
+      ref.read(favoritesProvider).requestRemove(widget.basicInfo.name);
     }
     setState(() {});
   }
