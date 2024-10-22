@@ -17,13 +17,13 @@ class FavoritesNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
-  void requestRemove(String name) async {
-    await HttpDeleteRequests.removeOneTagged(name);
+  void requestRemove(String name) {
+    HttpDeleteRequests.removeOneTagged(name);
     requestRefresh();
   }
 
-  void requestAdd(String name) async {
-    await HttpPostRequests.addOneTagged(name);
+  void requestAdd(String name) {
+    HttpPostRequests.addOneTagged(name);
     requestRefresh();
   }
 }
