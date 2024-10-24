@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:room_track_flutterapp/components/popup_menu.dart';
+import 'package:room_track_flutterapp/providers/map_target.dart';
 import 'package:room_track_flutterapp/theme/icon.dart';
 import 'package:room_track_flutterapp/views/home/favorites/lazy_layout.dart';
 import 'package:room_track_flutterapp/views/home/map/page.dart';
@@ -9,14 +11,14 @@ import 'package:room_track_flutterapp/views/home/search/page_initial.dart';
 import 'package:room_track_flutterapp/views/settings/profile.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class HomeLayout extends StatefulWidget {
+class HomeLayout extends ConsumerStatefulWidget {
   const HomeLayout({super.key});
 
   @override
-  State<HomeLayout> createState() => _HomeLayoutState();
+  ConsumerState<HomeLayout> createState() => _HomeLayoutState();
 }
 
-class _HomeLayoutState extends State<HomeLayout> {
+class _HomeLayoutState extends ConsumerState<HomeLayout> {
   int _index = 1;
 
   final email = FirebaseAuth.instance.currentUser!.email!;
@@ -42,10 +44,19 @@ class _HomeLayoutState extends State<HomeLayout> {
     );
   }
 
+  void _goToMap() {
+    _index = 2;
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final lang = AppLocalizations.of(context)!;
+    final goToMap = ref.watch(mapTargetProvider).goToMap;
+    if (goToMap) {
+      _goToMap();
+    }
     return Scaffold(
       appBar: AppBar(
         surfaceTintColor: theme.colorScheme.surface,

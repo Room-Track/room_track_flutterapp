@@ -28,6 +28,6 @@ class FavoriteCardType {
 
   @override
   String toString() {
-    return "FavoriteCardType\n  name : $name\n  type : $type\n  icon : $icon\n  isFavorite : $isFavorite";
+    return "FavoriteCardType\n  name : $name\n  type : $type\n  icon : $icon\n  isFavorite : $isFavorite\n";
   }
 }

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:room_track_flutterapp/providers/map_target.dart';
 import 'package:room_track_flutterapp/types/building_info.dart';
 import 'package:room_track_flutterapp/types/favorite_card.dart';
 
-class RegularRoomInfoPage extends StatelessWidget {
+class RegularRoomInfoPage extends ConsumerWidget {
   final FavoriteCardType basicInfo;
   final BuildingInfoType buildingInfo;
   const RegularRoomInfoPage({
@@ -13,10 +15,13 @@ class RegularRoomInfoPage extends StatelessWidget {
   });
 
   void _onMapTap() {}
-  void _onGoTap() {}
+  void _onGoTap(BuildContext context, WidgetRef ref) {
+    Navigator.popUntil(context, (route) => route.isFirst);
+    ref.read(mapTargetProvider).changeTarget(basicInfo, buildingInfo);
+  }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final styleDesc = TextStyle(
       color: theme.colorScheme.secondary.withAlpha(200),
@@ -108,7 +113,9 @@ class RegularRoomInfoPage extends StatelessWidget {
             ),
             const SizedBox(height: 50),
             TextButton(
-              onPressed: _onGoTap,
+              onPressed: () {
+                _onGoTap(context, ref);
+              },
               style: TextButton.styleFrom(
                 overlayColor: theme.colorScheme.onPrimary,
                 padding: const EdgeInsets.all(15),

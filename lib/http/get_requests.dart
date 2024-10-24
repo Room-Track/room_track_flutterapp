@@ -77,4 +77,25 @@ class HttpGetRequests {
     }
     return [];
   }
+
+  static Future<Iterable<FavoriteCardType>> getAllFrom(
+      String building, int floor) async {
+    final String token =
+        (await FirebaseAuth.instance.currentUser?.getIdToken())!;
+    final url = Uri.http(EnvVariables.API_URL, '/search/floor', {
+      'floor': floor.toString(),
+      'building': building,
+    });
+    final res = await http.get(url, headers: {
+      'authorization': token,
+    });
+    if (200 <= res.statusCode && res.statusCode < 300) {
+      final Map<String, dynamic> body = jsonDecode(res.body);
+      final List rawData = body['data'];
+      return rawData.map((el) {
+        return FavoriteCardType.fromJson(el);
+      });
+    }
+    return [];
+  }
 }

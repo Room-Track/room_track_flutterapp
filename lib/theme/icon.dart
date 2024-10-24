@@ -1,3 +1,4 @@
+
 class IconSchemeBackground {
   static const logoSVG = 'assets/background/logo.svg';
   static const serverOffSVG = 'assets/background/server_off.svg';
@@ -14,6 +15,7 @@ class IconSchemeCard {
   static const classroomSVG = 'assets/card/classroom.svg';
   static const computerlabSVG = 'assets/card/computerlab.svg';
 }
+
 
 class IconSchemePlaceHolder {
   static const profilePNG = 'assets/placeholder/profile.png';
